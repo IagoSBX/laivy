@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
 
   n8n:
@@ -14,6 +12,7 @@ services:
       - WEBHOOK_URL=http://localhost:5678
     volumes:
       - n8n_data:/home/node/.n8n
+      - /Users/iagosantos/Documents/laivy:/files
     restart: unless-stopped
 
   qdrant:
