@@ -10,7 +10,7 @@ services:
     environment:
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=admin
-      - N8N_BASIC_AUTH_PASSWORD=laivy2026
+      - N8N_BASIC_AUTH_PASSWORD=Iago2009@
       - WEBHOOK_URL=http://localhost:5678
     volumes:
       - n8n_data:/home/node/.n8n
