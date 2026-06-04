@@ -28,7 +28,6 @@ nav{flex:1;padding:20px 0;overflow-y:auto;}
 .nav-item{display:flex;align-items:center;gap:12px;padding:12px 24px;font-size:14px;font-weight:600;color:rgba(240,244,255,0.6);transition:all .2s;border-left:3px solid transparent;text-decoration:none;}
 .nav-item:hover{color:var(--branco);background:rgba(0,201,122,0.06);border-left-color:rgba(0,201,122,0.4);}
 .nav-item.active{color:var(--verde);background:rgba(0,201,122,0.1);border-left-color:var(--verde);}
-.nav-icon{font-size:18px;width:20px;text-align:center;}
 .sidebar-footer{padding:20px 24px;border-top:1px solid rgba(0,201,122,0.1);}
 .user-info{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
 .user-avatar{width:36px;height:36px;background:linear-gradient(135deg,var(--verde),#00A865);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--azul);}
@@ -145,8 +144,6 @@ label.form-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transfor
 .toast-item.erro{border-color:rgba(255,80,80,0.3);}
 @keyframes slideIn{from{transform:translateX(40px);opacity:0}to{transform:translateX(0);opacity:1}}
 /* THEME TOGGLE */
-.theme-toggle-btn{position:fixed;bottom:24px;left:260px;width:40px;height:40px;border-radius:50%;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:500;transition:all .25s;box-shadow:0 4px 14px rgba(0,0,0,.25);}
-.theme-toggle-btn:hover{transform:scale(1.1);}
 /* LOGOUT MODAL */
 #logoutModal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:99998;display:none;align-items:center;justify-content:center;}
 #logoutModal.show{display:flex;}
@@ -159,14 +156,6 @@ label.form-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transfor
 .btn-logout-cancel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--cinza);font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:2px;padding:11px 28px;border-radius:10px;cursor:pointer;}
 .btn-logout-confirm{background:rgba(255,80,80,.15);border:1px solid rgba(255,80,80,.35);color:#FF6B6B;font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:2px;padding:11px 28px;border-radius:10px;cursor:pointer;}
 /* LIGHT THEME */
-body.light{--azul:#1E2D45;--azul2:#263650;--branco:#E8EEF7;--cinza:#9BADC8;--card-bg:linear-gradient(135deg,#263650,#1E2D45);--card-border:rgba(255,255,255,0.08);}
-body.light .main{background:#1A2740!important;}body.light .sidebar{background:linear-gradient(180deg,#131E30,#0F1926)!important;}
-body.light .card-dark{background:linear-gradient(135deg,#263650,#1E2D45)!important;border-color:rgba(255,255,255,0.07)!important;}
-body.light .time-card{background:linear-gradient(135deg,#263650,#1E2D45)!important;border-color:rgba(255,255,255,0.07)!important;}
-body.light .form-control,body.light .form-select{background:rgba(255,255,255,0.07)!important;border-color:rgba(255,255,255,0.12)!important;color:#E8EEF7!important;}
-body.light .modal-content{background:#1E2D45!important;color:#E8EEF7!important;}
-body.light .logout-card{background:linear-gradient(135deg,#263650,#1E2D45)!important;}
-
 /* ── FORM UX — Novo Time ── */
 .field-hint{font-size:11px;margin-top:4px;display:none;}
 .field-hint.show{display:block;}
@@ -232,34 +221,24 @@ body.light .logout-card{background:linear-gradient(135deg,#263650,#1E2D45)!impor
 </div>
 
 <!-- THEME TOGGLE -->
-<button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTema()" title="Modo Claro">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"/>
-    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-  </svg>
-</button>
-
 <aside class="sidebar">
-  <div class="sidebar-logo">
-    <div class="logo-icon">L</div>
-    <div class="logo-texts"><div class="t1">LAIVY</div><div class="t2">TCC · ETEC 02/2026</div></div>
-  </div>
+  <div class="sidebar-logo" id="sidebarLogo">
+ <div class="logo-icon" id="sidebarLogoIcon">L</div>
+ <div class="logo-texts"><div class="t1" id="sidebarNomeTime">LAIVY</div><div class="t2">Sistema Esportivo</div></div>
+</div>
   <nav>
     <div class="nav-section">Principal</div>
-    <a href="dashboard.html" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a>
-    <a href="usuarios.html"  class="nav-item"><span class="nav-icon">👤</span> Usuários</a>
+    <a href="dashboard.html" class="nav-item">Dashboard</a>
+    <a href="usuarios.html"  class="nav-item">Usuários</a>
     <div class="nav-section">Admin</div>
-    <a href="cadastrar-treinador.html" class="nav-item"><span class="nav-icon">🏋️</span> Treinadores</a>
+    <a href="cadastrar-treinador.html" class="nav-item">Treinadores</a>
     <div class="nav-section">Gestão</div>
-    <a href="exames.html"     class="nav-item"><span class="nav-icon">🩺</span> Exames</a>
-    <a href="desempenho.html" class="nav-item"><span class="nav-icon">📊</span> Desempenho</a>
-    <a href="atividades.html" class="nav-item"><span class="nav-icon">🏀</span> Atividades</a>
-    <a href="escalacao.html"  class="nav-item"><span class="nav-icon">🏀</span> Escalação</a>
-    <a href="calendario.html" class="nav-item"><span class="nav-icon">📅</span> Calendário</a>
-    <a href="visitantes.html" class="nav-item"><span class="nav-icon">🏟️</span> Visitantes</a>
+    <a href="exames.html"     class="nav-item">Exames</a>
+    <a href="desempenho.html" class="nav-item">Desempenho</a>
+    <a href="atividades.html" class="nav-item">Atividades</a>
+    <a href="escalacao.html"  class="nav-item">Escalação</a>
+    <a href="calendario.html" class="nav-item">Calendário</a>
+    <a href="visitantes.html" class="nav-item">Visitantes</a>
   </nav>
   <div class="sidebar-footer">
     <div class="user-info">
@@ -347,10 +326,6 @@ function fecharLogout(){ document.getElementById('logoutModal').classList.remove
 function confirmarLogout(){ sessionStorage.clear(); window.location.href='login.html'; }
 
 // ── THEME ──
-function _applyTheme(light){ document.body.classList.toggle('light',light); var btn=document.getElementById('themeToggleBtn'); if(!btn)return; var svg=btn.querySelector('svg'); if(light){btn.title='Modo Escuro';svg.innerHTML='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';}else{btn.title='Modo Claro';svg.innerHTML='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';} }
-function toggleTema(){ var l=!document.body.classList.contains('light'); localStorage.setItem('laivy_tema',l?'light':'dark'); _applyTheme(l); }
-(function(){ _applyTheme(localStorage.getItem('laivy_tema')==='light'); })();
-
 const API   = '/times';
 const API_U = '/usuarios';
 const API_A = '/atividades';
@@ -685,6 +660,27 @@ function validarFormTime(){
   }
   return ok;
 }
+</script>
+
+<script>
+(function(){
+  var ts = JSON.parse(sessionStorage.getItem('timeSelecionado') || 'null');
+  if (!ts) return;
+  var icon = document.getElementById('sidebarLogoIcon');
+  var nome = document.getElementById('sidebarNomeTime');
+  if (nome) nome.textContent = ts.nome || 'LAIVY';
+  if (icon) {
+    if (ts.logo) {
+      icon.style.background = 'none';
+      icon.style.padding = '0';
+      icon.innerHTML = '<img src="' + ts.logo + '" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">';
+    } else {
+      var ini = (ts.nome || 'L').split(' ').slice(0,2).map(function(x){return x[0];}).join('').toUpperCase();
+      icon.textContent = ini;
+      if (ts.cor) icon.style.background = 'linear-gradient(135deg,' + ts.cor + ',' + ts.cor + 'AA)';
+    }
+  }
+})();
 </script>
 </body>
 </html>

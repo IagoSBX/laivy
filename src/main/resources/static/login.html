@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TCC ETEC - Sistema Esportivo</title>
+<title>LAIVY - Sistema Esportivo</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
  :root {
@@ -128,73 +128,6 @@
  50% { transform: translateY(-10px); }
  }
 
- .tcc-text {
- position: relative;
- z-index: 2;
- text-align: center;
- margin-top: 24px;
- }
-
- .tcc-text .tcc-label {
- font-family: 'Bebas Neue', cursive;
- font-size: 13px;
- letter-spacing: 6px;
- color: var(--verde);
- opacity: 0.8;
- }
-
- .tcc-text .tcc-title {
- font-family: 'Bebas Neue', cursive;
- font-size: 32px;
- letter-spacing: 3px;
- color: var(--branco);
- line-height: 1;
- margin: 6px 0 4px;
- }
-
- .tcc-text .tcc-sub {
- font-size: 11px;
- font-weight: 300;
- color: var(--cinza);
- letter-spacing: 2px;
- text-transform: uppercase;
- }
-
- .divisor {
- position: relative;
- z-index: 2;
- width: 50px;
- height: 2px;
- background: linear-gradient(90deg, transparent, var(--verde), transparent);
- margin: 18px auto;
- }
-
- .grupo {
- position: relative;
- z-index: 2;
- text-align: center;
- }
-
- .grupo-label {
- font-size: 10px;
- letter-spacing: 3px;
- color: var(--cinza);
- text-transform: uppercase;
- margin-bottom: 8px;
- }
-
- .grupo-nomes {
- font-size: 12px;
- color: rgba(240,244,255,0.7);
- line-height: 1.8;
- }
-
- .grupo-nomes span {
- display: block;
- font-weight: 600;
- font-size: 13px;
- color: var(--branco);
- }
 
  /* LADO DIREITO — FORM */
  .form-side {
@@ -449,63 +382,7 @@
 }
 
 /* ── TEMA CLARO — Soft Blue-Grey ── */
-body.light{
-  --azul:#1E2D45;
-  --azul2:#263650;
-  --branco:#E8EEF7;
-  --cinza:#9BADC8;
-  --verde:#00C97A;
-  --card-bg:linear-gradient(135deg,#263650,#1E2D45);
-  --card-border:rgba(255,255,255,0.08);
-}
-body.light .main          { background:#1A2740!important; }
-body.light .sidebar       { background:linear-gradient(180deg,#131E30,#0F1926)!important; }
-body.light .card-dark     { background:linear-gradient(135deg,#263650,#1E2D45)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .stat-card     { background:linear-gradient(135deg,#263650,#1E2D45)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .user-card,
-body.light .exam-card,
-body.light .desemp-card   { background:linear-gradient(135deg,#263650,#1E2D45)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .form-control,
-body.light .form-select   { background:rgba(255,255,255,0.07)!important; border-color:rgba(255,255,255,0.12)!important; color:#E8EEF7!important; }
-body.light .form-control::placeholder { color:rgba(232,238,247,0.35)!important; }
-body.light .search-bar    { background:rgba(255,255,255,0.07)!important; border-color:rgba(255,255,255,0.12)!important; color:#E8EEF7!important; }
-body.light .select-filtro { background:rgba(255,255,255,0.07)!important; border-color:rgba(255,255,255,0.12)!important; color:#9BADC8!important; }
-body.light .tabs          { background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .tab           { color:#9BADC8!important; }
-body.light .tab:hover:not(.active) { background:rgba(255,255,255,0.06)!important; }
-body.light .table         { color:#E8EEF7!important; }
-body.light .table tbody tr { background:rgba(255,255,255,0.025)!important; }
-body.light .table tbody tr:hover { background:rgba(0,201,122,0.07)!important; }
-body.light .table thead th { background:rgba(19,30,48,0.9)!important; color:#9BADC8!important; }
-body.light .table tbody td { border-top-color:rgba(255,255,255,0.04)!important; }
-body.light .modal-content { background:#1E2D45!important; color:#E8EEF7!important; border-color:rgba(255,255,255,0.1)!important; }
-body.light .logout-card   { background:linear-gradient(135deg,#263650,#1E2D45)!important; }
-body.light .btn-logout    { background:rgba(255,80,80,0.1)!important; }
-body.light .bv-card       { background:linear-gradient(135deg,#1a3a22,#1E2D45)!important; }
-body.light .hora-pill     { background:linear-gradient(135deg,#263650,#1E2D45)!important; }
-body.light .quick-btn     { background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .quick-btn:hover{ background:rgba(255,255,255,0.08)!important; }
-body.light .detalhe-item  { background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.06)!important; }
-body.light .ps-card       { background:linear-gradient(135deg,#263650,#1E2D45)!important; }
-body.light .ps-field input { background:rgba(255,255,255,0.07)!important; border-color:rgba(255,255,255,0.12)!important; color:#E8EEF7!important; }
-body.light .ps-req        { background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.07)!important; }
 /* theme toggle in light mode */
-body.light .theme-toggle-btn { background:linear-gradient(135deg,#263650,#1E2D45)!important; border-color:rgba(255,255,255,0.1)!important; }
-
-/* ── ACTION BUTTONS — Text Labels ── */
-.btn-acao-sm {
-  padding: 5px 14px;
-  border-radius: 7px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: all 0.18s;
-  font-family: 'Barlow', sans-serif;
-  white-space: nowrap;
-}
 .btn-acao-sm:hover { transform: translateY(-1px); }
 .btn-ver  { background: rgba(78,201,255,0.10); color: #4EC9FF; border-color: rgba(78,201,255,0.25); }
 .btn-ver:hover  { background: rgba(78,201,255,0.22); }
@@ -550,7 +427,7 @@ body.light .theme-toggle-btn { background:linear-gradient(135deg,#263650,#1E2D45
 <div id="loadingScreen">
  <div class="loading-logo">L</div>
  <div class="loading-title">LAIVY</div>
- <div class="loading-sub">TCC · ETEC 02/2026</div>
+ <div class="loading-sub">Sistema Esportivo</div>
  <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
 </div>
 
@@ -625,25 +502,6 @@ body.light .theme-toggle-btn { background:linear-gradient(135deg,#263650,#1E2D45
  <circle cx="90" cy="165" r="1.5" fill="#00C97A" opacity="0.4"/>
  <circle cx="110" cy="165" r="1.5" fill="#00C97A" opacity="0.4"/>
  </svg>
- </div>
-
- <div class="tcc-text">
- <div class="tcc-label">PROJETO LAIVY</div>
- <div class="tcc-title">TCC · 02/2026</div>
- <div class="tcc-sub">Sistema Gerenciador Esportivo</div>
- </div>
-
- <div class="divisor"></div>
-
- <div class="grupo">
- <div class="grupo-label">Desenvolvido por</div>
- <div class="grupo-nomes">
- <span>Iago Silva</span>
- <span>Victor Hugo</span>
- <span>Yago Ribeiro</span>
- <span>Leonardo Assis</span>
- <span>Arthur</span>
- </div>
  </div>
 
  </div>
@@ -867,10 +725,6 @@ function clearLoginError(){
   document.getElementById('senhaInput').classList.remove('err-field','ok-field');
 }
 // ── TEMA na tela de login ──
-(function(){
-  if(localStorage.getItem('laivy_tema')==='light') document.body.classList.add('light');
-})();
-
 function mostrarLoginLoading(){
   const el = document.getElementById('loginLoading');
   el.style.display = 'flex';

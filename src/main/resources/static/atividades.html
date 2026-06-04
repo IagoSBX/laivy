@@ -22,7 +22,6 @@ nav{flex:1;padding:20px 0;overflow-y:auto;}
 .nav-item{display:flex;align-items:center;gap:12px;padding:12px 24px;font-size:14px;font-weight:600;color:rgba(240,244,255,0.6);cursor:pointer;transition:all 0.2s;border-left:3px solid transparent;text-decoration:none;}
 .nav-item:hover{color:var(--branco);background:rgba(0,201,122,0.06);border-left-color:rgba(0,201,122,0.4);}
 .nav-item.active{color:var(--verde);background:rgba(0,201,122,0.1);border-left-color:var(--verde);}
-.nav-icon{font-size:18px;width:20px;text-align:center;}
 .sidebar-footer{padding:20px 24px;border-top:1px solid rgba(0,201,122,0.1);}
 .user-info{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
 .user-avatar{width:36px;height:36px;background:linear-gradient(135deg,var(--verde),#00A865);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--azul);}
@@ -145,45 +144,7 @@ label.form-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transfor
 .btn-logout-confirm:hover{background:rgba(255,80,80,0.3);}
 
 /* ── TEMA CLARO ── */
-body.light{
-  --azul:#EEF2FA;--azul2:#FFFFFF;--branco:#0A1628;--cinza:#5A6B8A;
-  --card-bg:linear-gradient(135deg,#FFFFFF,#F4F6FA);
-  --card-border:rgba(0,0,0,0.08);
-}
-body.light .sidebar{background:linear-gradient(180deg,#1A2E4A,#0D1E35)!important;}
-body.light .main{background:#EEF2FA!important;}
-body.light .card-dark{background:#FFFFFF!important;border-color:rgba(0,0,0,0.08)!important;}
-body.light .form-control,body.light .form-select{
-  background:#FFFFFF!important;border-color:rgba(0,0,0,0.15)!important;color:#0A1628!important;}
-body.light .form-control::placeholder{color:rgba(10,22,40,0.3)!important;}
-body.light .search-bar{background:#fff;border-color:rgba(0,0,0,0.12)!important;color:#0A1628!important;}
-body.light .select-filtro{background:#fff!important;color:#0A1628!important;}
-body.light .table{color:#0A1628!important;}
-body.light .table tbody tr{background:rgba(0,0,0,0.015)!important;}
-body.light .table tbody tr:hover{background:rgba(0,201,122,0.05)!important;}
-body.light .table thead th{background:#f4f6fa!important;color:#5A6B8A!important;}
-body.light .modal-content{background:#fff!important;color:#0A1628!important;}
-body.light .tabs{background:rgba(0,0,0,0.04)!important;border-color:rgba(0,0,0,0.08)!important;}
-body.light .tab{color:#5A6B8A!important;}
-body.light .tab:hover:not(.active){background:rgba(0,0,0,0.05)!important;}
-body.light .logout-card{background:linear-gradient(135deg,#fff,#f4f6fa)!important;}
-body.light .user-card,body.light .exam-card,body.light .desemp-card{
-  background:#FFFFFF!important;border-color:rgba(0,0,0,0.08)!important;}
-body.light .stat-card{background:#FFFFFF!important;border-color:rgba(0,0,0,0.08)!important;}
-body.light .btn-logout{background:rgba(255,80,80,0.08)!important;}
 /* ── BOTÃO TEMA ── */
-.theme-toggle-btn{
-  position:fixed;bottom:24px;left:260px;width:40px;height:40px;
-  border-radius:50%;background:var(--card-bg);border:1px solid var(--card-border);
-  display:flex;align-items:center;justify-content:center;cursor:pointer;
-  z-index:500;transition:all 0.25s;box-shadow:0 4px 14px rgba(0,0,0,0.25);
-}
-.theme-toggle-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,0.35);}
-.theme-toggle-btn svg{transition:transform 0.4s;}
-body.light .theme-toggle-btn{box-shadow:0 4px 14px rgba(0,0,0,0.12);}
-/* ── VIEW TOGGLE ICONS ── */
-.view-btn svg{pointer-events:none;}
-
 /* ── TABLE UX ── */
 .table-responsive{border-radius:14px;overflow:hidden;}
 .table{border-collapse:separate!important;border-spacing:0!important;width:100%;}
@@ -225,69 +186,8 @@ body.light .theme-toggle-btn{box-shadow:0 4px 14px rgba(0,0,0,0.12);}
 .table .td-main{font-weight:700;color:var(--branco);}
 .table .td-sub{font-size:11px;color:var(--cinza);margin-top:2px;}
 .table .td-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;}
-body.light .table thead th{background:#e8ecf4!important;color:#5A6B8A!important;}
-body.light .table tbody tr{background:rgba(0,0,0,0.01)!important;}
-body.light .table tbody tr:hover{background:rgba(0,201,122,0.04)!important;}
-body.light .table tbody td{border-top-color:rgba(0,0,0,0.05)!important;}
-
 /* ── TEMA CLARO — Soft Blue-Grey ── */
-body.light{
-  --azul:#1E2D45;
-  --azul2:#263650;
-  --branco:#E8EEF7;
-  --cinza:#9BADC8;
-  --verde:#00C97A;
-  --card-bg:linear-gradient(135deg,#263650,#1E2D45);
-  --card-border:rgba(255,255,255,0.08);
-}
-body.light .main          { background:#1A2740!important; }
-body.light .sidebar       { background:linear-gradient(180deg,#131E30,#0F1926)!important; }
-body.light .card-dark     { background:linear-gradient(135deg,#263650,#1E2D45)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .stat-card     { background:linear-gradient(135deg,#263650,#1E2D45)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .user-card,
-body.light .exam-card,
-body.light .desemp-card   { background:linear-gradient(135deg,#263650,#1E2D45)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .form-control,
-body.light .form-select   { background:rgba(255,255,255,0.07)!important; border-color:rgba(255,255,255,0.12)!important; color:#E8EEF7!important; }
-body.light .form-control::placeholder { color:rgba(232,238,247,0.35)!important; }
-body.light .search-bar    { background:rgba(255,255,255,0.07)!important; border-color:rgba(255,255,255,0.12)!important; color:#E8EEF7!important; }
-body.light .select-filtro { background:rgba(255,255,255,0.07)!important; border-color:rgba(255,255,255,0.12)!important; color:#9BADC8!important; }
-body.light .tabs          { background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .tab           { color:#9BADC8!important; }
-body.light .tab:hover:not(.active) { background:rgba(255,255,255,0.06)!important; }
-body.light .table         { color:#E8EEF7!important; }
-body.light .table tbody tr { background:rgba(255,255,255,0.025)!important; }
-body.light .table tbody tr:hover { background:rgba(0,201,122,0.07)!important; }
-body.light .table thead th { background:rgba(19,30,48,0.9)!important; color:#9BADC8!important; }
-body.light .table tbody td { border-top-color:rgba(255,255,255,0.04)!important; }
-body.light .modal-content { background:#1E2D45!important; color:#E8EEF7!important; border-color:rgba(255,255,255,0.1)!important; }
-body.light .logout-card   { background:linear-gradient(135deg,#263650,#1E2D45)!important; }
-body.light .btn-logout    { background:rgba(255,80,80,0.1)!important; }
-body.light .bv-card       { background:linear-gradient(135deg,#1a3a22,#1E2D45)!important; }
-body.light .hora-pill     { background:linear-gradient(135deg,#263650,#1E2D45)!important; }
-body.light .quick-btn     { background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.07)!important; }
-body.light .quick-btn:hover{ background:rgba(255,255,255,0.08)!important; }
-body.light .detalhe-item  { background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.06)!important; }
-body.light .ps-card       { background:linear-gradient(135deg,#263650,#1E2D45)!important; }
-body.light .ps-field input { background:rgba(255,255,255,0.07)!important; border-color:rgba(255,255,255,0.12)!important; color:#E8EEF7!important; }
-body.light .ps-req        { background:rgba(255,255,255,0.04)!important; border-color:rgba(255,255,255,0.07)!important; }
 /* theme toggle in light mode */
-body.light .theme-toggle-btn { background:linear-gradient(135deg,#263650,#1E2D45)!important; border-color:rgba(255,255,255,0.1)!important; }
-
-/* ── ACTION BUTTONS — Text Labels ── */
-.btn-acao-sm {
-  padding: 5px 14px;
-  border-radius: 7px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: all 0.18s;
-  font-family: 'Barlow', sans-serif;
-  white-space: nowrap;
-}
 .btn-acao-sm:hover { transform: translateY(-1px); }
 .btn-ver  { background: rgba(78,201,255,0.10); color: #4EC9FF; border-color: rgba(78,201,255,0.25); }
 .btn-ver:hover  { background: rgba(78,201,255,0.22); }
@@ -376,23 +276,23 @@ body.light .theme-toggle-btn { background:linear-gradient(135deg,#263650,#1E2D45
 </div>
 
 <aside class="sidebar">
- <div class="sidebar-logo">
- <div class="logo-icon">L</div>
- <div class="logo-texts"><div class="t1c">LAIVY</div><div class="t2c">TCC · ETEC 02/2026</div></div>
- </div>
+ <div class="sidebar-logo" id="sidebarLogo">
+ <div class="logo-icon" id="sidebarLogoIcon">L</div>
+ <div class="logo-texts"><div class="t1" id="sidebarNomeTime">LAIVY</div><div class="t2">Sistema Esportivo</div></div>
+</div>
  <nav>
  <div class="nav-section">Principal</div>
-    <a href="dashboard.html" class="nav-item"><span class="nav-icon">🏠</span> Dashboard</a>
-    <a href="usuarios.html"  class="nav-item"><span class="nav-icon">👤</span> Usuários</a>
+    <a href="dashboard.html" class="nav-item">Dashboard</a>
+    <a href="usuarios.html"  class="nav-item">Usuários</a>
  <div class="nav-section">Admin</div>
-    <a href="cadastrar-treinador.html" class="nav-item"><span class="nav-icon">🏋️</span> Treinadores</a>
+    <a href="cadastrar-treinador.html" class="nav-item">Treinadores</a>
     <div class="nav-section">Gestão</div>
-    <a href="exames.html"     class="nav-item"><span class="nav-icon">🩺</span> Exames</a>
-    <a href="desempenho.html" class="nav-item"><span class="nav-icon">📊</span> Desempenho</a>
-    <a href="atividades.html" class="nav-item active"><span class="nav-icon">🏀</span> Atividades</a>
-    <a href="escalacao.html"  class="nav-item"><span class="nav-icon">🏀</span> Escalação</a>
-    <a href="calendario.html" class="nav-item"><span class="nav-icon">📅</span> Calendário</a>
-    <a href="visitantes.html" class="nav-item"><span class="nav-icon">🏟️</span> Visitantes</a>
+    <a href="exames.html"     class="nav-item">Exames</a>
+    <a href="desempenho.html" class="nav-item">Desempenho</a>
+    <a href="atividades.html" class="nav-item active">Atividades</a>
+    <a href="escalacao.html"  class="nav-item">Escalação</a>
+    <a href="calendario.html" class="nav-item">Calendário</a>
+    <a href="visitantes.html" class="nav-item">Visitantes</a>
  </nav>
  <!-- TIME SELECIONADO -->
  <a href="selecionar-time.html" class="time-indicator" id="timeSidebarIndicator" style="display:none">
@@ -1059,30 +959,6 @@ async function confirmarFinalizarJogo(){
  carregar();
 }
 
-// ══ TEMA CLARO/ESCURO ══
-function _applyTheme(light){
-  document.body.classList.toggle('light', light);
-  var btn = document.getElementById('themeToggleBtn');
-  if(!btn) return;
-  var svg = btn.querySelector('svg');
-  if(light){
-    btn.title='Modo Escuro';
-    svg.innerHTML='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-  } else {
-    btn.title='Modo Claro';
-    svg.innerHTML='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-  }
-}
-function toggleTema(){
-  var light = !document.body.classList.contains('light');
-  localStorage.setItem('laivy_tema', light ? 'light' : 'dark');
-  _applyTheme(light);
-}
-// Aplicar tema salvo ao carregar
-(function(){
-  _applyTheme(localStorage.getItem('laivy_tema') === 'light');
-})();
-
 // ══ FLATPICKR — date inputs ══
 document.addEventListener('DOMContentLoaded', function(){
   if(typeof flatpickr === 'undefined') return;
@@ -1162,5 +1038,26 @@ document.addEventListener('DOMContentLoaded', function(){
  </div>
 </div>
 
+
+<script>
+(function(){
+  var ts = JSON.parse(sessionStorage.getItem('timeSelecionado') || 'null');
+  if (!ts) return;
+  var icon = document.getElementById('sidebarLogoIcon');
+  var nome = document.getElementById('sidebarNomeTime');
+  if (nome) nome.textContent = ts.nome || 'LAIVY';
+  if (icon) {
+    if (ts.logo) {
+      icon.style.background = 'none';
+      icon.style.padding = '0';
+      icon.innerHTML = '<img src="' + ts.logo + '" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">';
+    } else {
+      var ini = (ts.nome || 'L').split(' ').slice(0,2).map(function(x){return x[0];}).join('').toUpperCase();
+      icon.textContent = ini;
+      if (ts.cor) icon.style.background = 'linear-gradient(135deg,' + ts.cor + ',' + ts.cor + 'AA)';
+    }
+  }
+})();
+</script>
 </body>
 </html>

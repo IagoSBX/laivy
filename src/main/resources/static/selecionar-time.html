@@ -509,10 +509,10 @@ const API_ATIV  = '/atividades';
 
 function ini(n){ return (n||'?').split(' ').slice(0,2).map(x=>x[0]).join('').toUpperCase(); }
 
-function selecionarTime(timeId, timeNome, timeCor) {
+function selecionarTime(timeId, timeNome, timeCor, timeLogo) {
   // Salva na sessão a cada login
   sessionStorage.setItem('timeSelecionado', JSON.stringify({
-    id: timeId, nome: timeNome, cor: timeCor || '#00C97A'
+    id: timeId, nome: timeNome, cor: timeCor || '#00C97A', logo: timeLogo || null
   }));
   // Loading antes de entrar
   document.getElementById('timesContainer').innerHTML =
@@ -538,7 +538,7 @@ async function carregarTimes() {
         usuarios.find(u => u.id_usuario === user.id_usuario && u.time && u.time.id_time === t.id_time)
       );
       if (meuTime) {
-        selecionarTime(meuTime.id_time, meuTime.nome_time, meuTime.cor_time);
+        selecionarTime(meuTime.id_time, meuTime.nome_time, meuTime.cor_time, meuTime.logo_time);
         return;
       }
       // Atleta sem time
@@ -563,7 +563,7 @@ async function carregarTimes() {
       }
       if (lista.length === 1) {
         // Só um time — entra direto sem escolher
-        selecionarTime(lista[0].id_time, lista[0].nome_time, lista[0].cor_time);
+        selecionarTime(lista[0].id_time, lista[0].nome_time, lista[0].cor_time, lista[0].logo_time);
         return;
       }
     }
@@ -607,8 +607,9 @@ function renderGrid(times, usuarios, atividades) {
     const logoHTML = t.logo_time
       ? '<img src="' + t.logo_time + '" alt="">'
       : '<span style="color:#fff;font-family:\'Bebas Neue\',cursive;font-size:20px">' + ini(t.nome_time) + '</span>';
+    const logoEncoded = t.logo_time ? encodeURIComponent(t.logo_time) : '';
 
-    return '<div class="time-card" onclick="selecionarTime(' + t.id_time + ',\'' + t.nome_time.replace(/'/g,"\\u2019") + '\',\'' + cor + '\')">'
+    return '<div class="time-card" onclick="selecionarTime(' + t.id_time + ',\'' + t.nome_time.replace(/'/g,"\\u2019") + '\',\'' + cor + '\',decodeURIComponent(\'' + logoEncoded + '\'))">'
       + '<div class="tc-banner" style="background:' + cor + '"></div>'
       + '<div class="tc-body">'
         + '<div class="tc-top">'
