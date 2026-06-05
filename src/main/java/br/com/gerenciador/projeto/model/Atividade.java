@@ -52,7 +52,7 @@ public class Atividade {
 
     @OneToMany(mappedBy = "atividade", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("atividade")
-    private List<Calendario> calendarios;
+    private List<Calendario> calendario;
 
     public Atividade() {}
 
@@ -89,6 +89,6 @@ public class Atividade {
     public Time getTime() { return time; }
     public void setTime(Time time) { this.time = time; }
 
-    public List<Calendario> getCalendarios() { return calendarios; }
-    public void setCalendarios(List<Calendario> calendarios) { this.calendarios = calendarios; }
+    public List<Calendario> getCalendarios() { return calendario; }
+    public void setCalendarios(List<Calendario> calendario) { this.calendario = calendario; }
 }
