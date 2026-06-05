@@ -25,7 +25,8 @@ public class ExameController {
 
     // GET /exames
     @GetMapping
-    public List<Exame> listarTodos() {
+    public List<Exame> listarTodos(@RequestParam(required = false) Integer idTime) {
+        if (idTime != null) return exameDAO.buscarPorTime(idTime);
         return exameDAO.findAll();
     }
 

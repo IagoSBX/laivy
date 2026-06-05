@@ -24,7 +24,8 @@ public class DesempenhoController {
     private IUsuario usuarioDAO;
 
     @GetMapping
-    public List<Desempenho> listarTodos() {
+    public List<Desempenho> listarTodos(@RequestParam(required = false) Integer idTime) {
+        if (idTime != null) return desempenhoDAO.buscarPorTime(idTime);
         return desempenhoDAO.findAll();
     }
 

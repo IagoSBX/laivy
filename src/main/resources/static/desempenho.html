@@ -12,7 +12,7 @@
 body{font-family:'Barlow',sans-serif;background:var(--azul);color:var(--branco);min-height:100vh;display:flex;}
 
 /* SIDEBAR */
-.sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#0D1E3C,#091525);border-right:1px solid rgba(0,201,122,0.1);display:flex;flex-direction:column;padding:28px 0;position:fixed;top:0;left:0;height:100vh;z-index:100;}
+.sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#0D1E3C,#091525);border-right:1px solid rgba(0,201,122,0.1);display:flex;flex-direction:column;padding:28px 0;position:fixed;top:0;left:0;height:100vh;z-index:100;; overflow-y: auto; }
 .sidebar-logo{padding:0 24px 28px;border-bottom:1px solid rgba(0,201,122,0.1);display:flex;align-items:center;gap:12px;}
 .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--verde),#00A865);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:22px;color:var(--azul);}
 .logo-texts .t1{font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:2px;}
@@ -263,7 +263,7 @@ label.form-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transfor
 }
 .time-indicator:hover{background:rgba(255,255,255,0.08);}
 .ti-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-.ti-nome{font-size:12px;font-weight:700;color:var(--branco);
+.ti-nome{font-size:12px;font-weight:700;color:var(--branco);font-family:'Bebas Neue',cursive;letter-spacing:1px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;}
 .ti-trocar{font-size:10px;color:var(--cinza);font-weight:600;
   letter-spacing:.5px;white-space:nowrap;}
@@ -635,10 +635,12 @@ function calcularMediaGlobal(){
 
 // CARREGAR
 function carregar(){
+ console.log("[DESEMPENHO] timeSelecionado:", JSON.parse(sessionStorage.getItem("timeSelecionado")||"null"));
+ console.log("[DESEMPENHO] URL desempenhos:", urlTime(apiD));
  // Busca avaliações de desempenho e pontos de jogos em paralelo
  Promise.all([
- fetch(apiD).then(r=>r.json()).catch(()=>[]),
- fetch(apiAtv).then(r=>r.json()).catch(()=>[]),
+ fetch(urlTime(apiD)).then(r=>r.json()).catch(()=>[]),
+ fetch(urlTime(apiAtv)).then(r=>r.json()).catch(()=>[]),
  ]).then(([desempenhos, atividades]) => {
  if(isAtleta) dados = desempenhos.filter(x=>x.usuario?.id_usuario===user.id_usuario);
  else dados = desempenhos;
@@ -736,8 +738,8 @@ function renderCards(lista){
  <div class="desemp-footer">
  <span style="font-size:11px;color:var(--cinza)">#${d.id_desempenho}</span>
  <div class="desemp-acoes">
- <button class="btn-acao-sm btn-ver">Ver</button>
- ${isAdmin ? `<button class="btn-acao-sm btn-edit">Editar</button><button class="btn-acao-sm btn-del">Excluir</button>` : ''}
+ <button class="btn-acao-sm btn-ver" onclick="ver(${d.id_desempenho})">Ver</button>
+ ${isAdmin ? `<button class="btn-acao-sm btn-edit" onclick="abrirEdicao(${d.id_desempenho})">Editar</button><button class="btn-acao-sm btn-del" onclick="confirmarDel(${d.id_desempenho})">Excluir</button>` : ''}
  </div>
  </div>
  </div>`;
@@ -762,9 +764,9 @@ function renderTabela(lista){
  <td>${d.salto_vertical?`<span style="color:#A78FFF;font-weight:700">${d.salto_vertical} m</span>`:'—'}</td>
  <td><span style="font-family:'Bebas Neue',cursive;font-size:20px;color:#FFB020">${d.pontuacao||'—'}</span></td>
  <td>
- <button class="btn-acao-sm btn-ver">Ver</button>
- <button class="btn-acao-sm btn-edit">Editar</button>
- <button class="btn-acao-sm btn-del">Excluir</button>
+ <button class="btn-acao-sm btn-ver" onclick="ver(${d.id_desempenho})">Ver</button>
+ <button class="btn-acao-sm btn-edit" onclick="abrirEdicao(${d.id_desempenho})">Editar</button>
+ <button class="btn-acao-sm btn-del" onclick="confirmarDel(${d.id_desempenho})">Excluir</button>
  </td>
  </tr>`;
  }).join('');

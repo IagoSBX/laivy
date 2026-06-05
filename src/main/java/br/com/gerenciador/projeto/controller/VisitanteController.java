@@ -24,7 +24,8 @@ public class VisitanteController {
     private CalendarioDAO calendarioDAO;
 
     @GetMapping
-    public List<Visitante> listarTodos() {
+    public List<Visitante> listarTodos(@RequestParam(required = false) Integer idTime) {
+        if (idTime != null) return visitanteDAO.buscarPorTime(idTime);
         return visitanteDAO.findAll();
     }
 

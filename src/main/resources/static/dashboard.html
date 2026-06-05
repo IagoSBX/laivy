@@ -17,7 +17,7 @@
 body{font-family:'Barlow',sans-serif;background:var(--azul);color:var(--branco);min-height:100vh;display:flex;}
 
 /* ── SIDEBAR ── */
-.sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#0D1E3C,#091525);border-right:1px solid rgba(0,201,122,0.1);display:flex;flex-direction:column;padding:28px 0;position:fixed;top:0;left:0;height:100vh;z-index:100;transition:width 0.3s;}
+.sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#0D1E3C,#091525);border-right:1px solid rgba(0,201,122,0.1);display:flex;flex-direction:column;padding:28px 0;position:fixed;top:0;left:0;height:100vh;z-index:100;transition:width 0.3s;; overflow-y: auto; }
 .sidebar-logo{padding:0 24px 28px;border-bottom:1px solid rgba(0,201,122,0.1);display:flex;align-items:center;gap:12px;}
 .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--verde),#00A865);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:22px;color:var(--azul);flex-shrink:0;}
 .logo-texts .t1{font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:2px;}
@@ -538,7 +538,7 @@ loadStat('calendarios', 'mc-cal', 'mc-cal');
 loadStat('visitantes', 'mc-vis', 'mc-vis');
 
 // ── PRÓXIMAS ATIVIDADES ──
-fetch(`${api}/atividades`)
+fetch(urlTime(`${api}/atividades`))
  .then(r=>r.json())
  .then(data=>{
  const agora = new Date();

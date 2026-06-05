@@ -12,4 +12,7 @@ public interface VisitanteDAO extends JpaRepository<Visitante, Integer> {
 
     @Query("SELECT v FROM Visitante v WHERE v.calendario.id_calendario = :id")
     List<Visitante> buscarPorCalendario(@Param("id") Integer id);
+
+    @Query("SELECT v FROM Visitante v WHERE v.calendario.atividade.time.id_time = :idTime")
+    List<Visitante> buscarPorTime(@Param("idTime") Integer idTime);
 }

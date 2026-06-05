@@ -12,11 +12,11 @@
  --t1:#00C97A;--t2:#FFB020;--t3:#A78FFF;--t4:#4EC9FF;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Barlow',sans-serif;background:var(--azul);color:var(--branco);min-height:100vh;display:flex;}
-.sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#0D1E3C,#091525);border-right:1px solid rgba(0,201,122,0.1);display:flex;flex-direction:column;padding:28px 0;position:fixed;top:0;left:0;height:100vh;z-index:100;}
+.sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#0D1E3C,#091525);border-right:1px solid rgba(0,201,122,0.1);display:flex;flex-direction:column;padding:28px 0;position:fixed;top:0;left:0;height:100vh;z-index:100;; overflow-y: auto; }
 .sidebar-logo{padding:0 24px 28px;border-bottom:1px solid rgba(0,201,122,0.1);display:flex;align-items:center;gap:12px;}
 .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--verde),#00A865);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:22px;color:var(--azul);}
-.logo-texts .t1c{font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:2px;}
-.logo-texts .t2c{font-size:10px;color:var(--cinza);letter-spacing:1px;}
+.logo-texts .t1{font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:2px;}
+.logo-texts .t2{font-size:10px;color:var(--cinza);letter-spacing:1px;}
 nav{flex:1;padding:20px 0;overflow-y:auto;}
 .nav-section{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cinza);padding:10px 24px 6px;opacity:0.6;}
 .nav-item{display:flex;align-items:center;gap:12px;padding:12px 24px;font-size:14px;font-weight:600;color:rgba(240,244,255,0.6);cursor:pointer;transition:all 0.2s;border-left:3px solid transparent;text-decoration:none;}
@@ -649,7 +649,7 @@ fetch(apiU).then(r=>r.json()).then(data=>{
 
 function atualizarStats(){document.getElementById('st-total').textContent=dados.length;document.getElementById('st-t1').textContent=dados.filter(a=>a.tipo_atividade===1).length;document.getElementById('st-t2').textContent=dados.filter(a=>a.tipo_atividade===2).length;document.getElementById('st-t4').textContent=dados.filter(a=>a.tipo_atividade===4).length;}
 function filtrarTipo(v){document.getElementById('filtroTipo').value=v;mudarTab('lista',document.querySelectorAll('.tab')[0]);renderizar();}
-function carregar(){fetch(urlTime(api)).then(r=>r.json()).then(d=>{dados=d;atualizarStats();renderizar();if(calRef)calRef.refetchEvents();}).catch(()=>{dados=[];atualizarStats();renderizar();});}
+function carregar(){console.log('[ATIVIDADES] timeSelecionado:', JSON.parse(sessionStorage.getItem('timeSelecionado')||'null'));console.log('[ATIVIDADES] URL:', urlTime(api));fetch(urlTime(api)).then(r=>r.json()).then(d=>{dados=d;atualizarStats();renderizar();if(calRef)calRef.refetchEvents();}).catch(()=>{dados=[];atualizarStats();renderizar();});}
 
 function renderizar(){
  const busca=document.getElementById('busca').value.toLowerCase();

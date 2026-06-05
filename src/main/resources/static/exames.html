@@ -13,7 +13,7 @@
 body{font-family:'Barlow',sans-serif;background:var(--azul);color:var(--branco);min-height:100vh;display:flex;}
 
 /* SIDEBAR */
-.sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#0D1E3C,#091525);border-right:1px solid rgba(0,201,122,0.1);display:flex;flex-direction:column;padding:28px 0;position:fixed;top:0;left:0;height:100vh;z-index:100;}
+.sidebar{width:var(--sidebar-w);background:linear-gradient(180deg,#0D1E3C,#091525);border-right:1px solid rgba(0,201,122,0.1);display:flex;flex-direction:column;padding:28px 0;position:fixed;top:0;left:0;height:100vh;z-index:100;; overflow-y: auto; }
 .sidebar-logo{padding:0 24px 28px;border-bottom:1px solid rgba(0,201,122,0.1);display:flex;align-items:center;gap:12px;}
 .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--verde),#00A865);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',cursive;font-size:22px;color:var(--azul);}
 .logo-texts .t1{font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:2px;}
@@ -642,6 +642,8 @@ function verificarVencimentos(lista){
 
 // CARREGAR
 function carregar(){
+ console.log("[EXAMES] timeSelecionado:", JSON.parse(sessionStorage.getItem("timeSelecionado")||"null"));
+ console.log("[EXAMES] URL:", urlTime(apiEx));
  fetch(urlTime(apiEx)).then(r=>r.json()).then(d=>{
  if(isAtleta) dados = d.filter(e=>e.usuario?.id_usuario===user.id_usuario);
  else dados = d;
@@ -732,8 +734,8 @@ function renderCards(lista){
  <div class="exam-footer">
  <span style="font-size:11px;color:var(--cinza)">#${e.id_exame}</span>
  <div class="exam-acoes">
- <button class="btn-acao-sm btn-ver">Ver</button>
- ${isAdmin?'<button class="btn-acao-sm btn-del">Excluir</button>':''}
+ <button class="btn-acao-sm btn-ver" onclick="ver(${e.id_exame})">Ver</button>
+ ${isAdmin?'<button class="btn-acao-sm btn-del" onclick="confirmarDel(${e.id_exame})">Excluir</button>':''}
  </div>
  </div>
  </div>`;
@@ -763,8 +765,8 @@ function renderTabela(lista){
  <td>${e.taxa_gordura_usuario?e.taxa_gordura_usuario+'%':'—'}</td>
  <td><span style="background:${stBg};color:${stCor};padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700">${apto?'Apto':'Inapto'}</span></td>
  <td>
- <button class="btn-acao-sm btn-ver">Ver</button>
- ${isAdmin?'<button class="btn-acao-sm btn-del">Excluir</button>':''}
+ <button class="btn-acao-sm btn-ver" onclick="ver(${e.id_exame})">Ver</button>
+ ${isAdmin?'<button class="btn-acao-sm btn-del" onclick="confirmarDel(${e.id_exame})">Excluir</button>':''}
  </td>
  </tr>`;
  }).join('');
