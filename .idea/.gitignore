@@ -1,10 +1,33 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Environment-dependent path to Maven home directory
-/mavenHomeManager.xml
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
+# ── Maven ────────────────────────────────────────────────────
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# ── Eclipse IDE ──────────────────────────────────────────────
+.classpath
+.project
+.settings/
+.metadata/
+bin/
+
+# ── Spring Boot ──────────────────────────────────────────────
+*.log
+logs/
+
+
+# ── Docker / IA ──────────────────────────────────────────────
+laivyIA/docker-compose.yml
+laivyIA/
+
+# ── Sistema operacional ──────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IntelliJ  ─────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
